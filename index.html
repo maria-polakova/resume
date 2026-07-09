@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Резюме — Полякова Мария</title>
+    <style>
+        /* ===== ОБЩИЕ СТИЛИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 15px;
+            line-height: 1.6;
+            color: #1e2a3a;
+        }
+
+        .resume {
+            max-width: 920px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 20, 50, 0.1);
+            padding: 40px 45px;
+            transition: all 0.2s;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border-bottom: 4px solid #7c9bff;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .header-left h1 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #0e1a2b;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .header-left .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #4a6cf7;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 14px;
+            color: #1f3348;
+            line-height: 1.9;
+        }
+
+        .header-right a {
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0e1a2b;
+            border-left: 5px solid #4a6cf7;
+            padding-left: 14px;
+            margin-bottom: 14px;
+        }
+
+        /* ===== О СЕБЕ ===== */
+        .summary {
+            background: #f7faff;
+            padding: 18px 22px;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #1e2a3a;
+            border-left: 4px solid #4a6cf7;
+        }
+
+        /* ===== НАВЫКИ ТАБЛИЦЕЙ ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            background: #f7faff;
+            padding: 16px 22px;
+            border-radius: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dashed #dce5f2;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-cat {
+            font-weight: 600;
+            color: #0e1a2b;
+        }
+
+        .skill-values {
+            color: #2c405a;
+            text-align: right;
+        }
+
+        /* ===== ОБРАЗОВАНИЕ ===== */
+        .edu-block {
+            background: #f7faff;
+            padding: 16px 22px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .edu-block .edu-head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .edu-block .edu-left {
+            font-weight: 600;
+            color: #0e1a2b;
+        }
+
+        .edu-block .edu-right {
+            color: #2c405a;
+            text-align: right;
+        }
+
+        .edu-details {
+            margin-top: 6px;
+            font-size: 14px;
+            color: #1f3348;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .edu-details li {
+            padding: 2px 0;
+        }
+
+        /* ===== ПРОЕКТЫ ===== */
+        .project {
+            background: #f7faff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .project .proj-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0e1a2b;
+        }
+
+        .project .proj-stack {
+            display: inline-block;
+            background: #dce5f2;
+            padding: 0 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #1f3348;
+            margin: 4px 0 8px 0;
+        }
+
+        .project .proj-desc {
+            font-size: 14px;
+            color: #1f3348;
+            margin-top: 4px;
+        }
+
+        /* ===== ЯЗЫКИ ===== */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 22px;
+            background: #f7faff;
+            border-radius: 12px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== ДОПОЛНИТЕЛЬНО ===== */
+        .extra-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 24px;
+            background: #f7faff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            list-style: none;
+        }
+
+        .extra-list li {
+            font-size: 14px;
+            color: #1f3348;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .extra-list li::before {
+            content: "•";
+            color: #4a6cf7;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 650px) {
+            .resume {
+                padding: 24px 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-right {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .edu-block .edu-head {
+                flex-direction: column;
+            }
+
+            .edu-block .edu-right {
+                text-align: left;
+                margin-top: 2px;
+            }
+
+            .extra-list {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume">
+
+        <!-- ===== ШАПКА ===== -->
+        <header class="header">
+            <div class="header-left">
+                <h1>ПОЛЯКОВА МАРИЯ</h1>
+                <div class="title">Junior Frontend Developer (стажёр)</div>
+            </div>
+            <div class="header-right">
+                📍 Полоцк<br />
+                📞 <a href="tel:+375336029818">+375(33)602-98-18</a><br />
+                ✉ <a href="mailto:maria.paliakoua@gmail.com">maria.paliakoua@gmail.com</a><br />
+                🔗 <a href="#">GitHub (скоро)</a>
+            </div>
+        </header>
+
+        <!-- ===== О СЕБЕ ===== -->
+        <section class="section">
+            <div class="section-title">О себе</div>
+            <div class="summary">
+                Студентка 1-го курса Полоцкого государственного университета, специальность «Информационные технологии».
+                Ищу позицию стажёра-фронтенд разработчика. Обладаю базовыми знаниями <strong>HTML, CSS, JavaScript</strong> и
+                <strong>Figma</strong>. Имею опыт создания веб-страниц и работы с макетами. В университете изучала <strong>C++</strong>,
+                что дало понимание алгоритмов и логики программирования. Быстро обучаюсь, внимательна к деталям,
+                люблю доводить дела до конца. Активно изучаю английский язык для чтения технической документации.
+            </div>
+        </section>
+
+        <!-- ===== НАВЫКИ ===== -->
+        <section class="section">
+            <div class="section-title">Навыки</div>
+            <div class="skills-grid">
+                <div class="skill-item"><span class="skill-cat">Вёрстка</span><span class="skill-values">HTML5, CSS3, Flexbox, Grid</span></div>
+                <div class="skill-item"><span class="skill-cat">Языки программирования</span><span class="skill-values">JavaScript (база), C++</span></div>
+                <div class="skill-item"><span class="skill-cat">Дизайн</span><span class="skill-values">Figma (компоненты, прототипы)</span></div>
+                <div class="skill-item"><span class="skill-cat">Инструменты</span><span class="skill-values">Git, VS Code, Excel, Word</span></div>
+                <div class="skill-item"><span class="skill-cat">Soft Skills</span><span class="skill-values">Внимательность, работа в команде, обучаемость</span></div>
+            </div>
+        </section>
+
+        <!-- ===== ОБРАЗОВАНИЕ ===== -->
+        <section class="section">
+            <div class="section-title">Образование</div>
+
+            <div class="edu-block">
+                <div class="edu-head">
+                    <div class="edu-left">
+                        <strong>Полоцкий государственный университет</strong>
+                    </div>
+                    <div class="edu-right">
+                        2025–2029 (по н.в.)
+                    </div>
+                </div>
+                <div style="font-size:14px; color:#2c405a; margin-top:2px;">
+                    Информационные технологии · 1-й курс · неоконченное высшее
+                </div>
+                <ul class="edu-details">
+                    <li><strong>Релевантные дисциплины:</strong></li>
+                    <li>• Основы алгоритмизации и программирования (C++)</li>
+                    <li>• Веб-технологии (HTML, CSS) — самостоятельно</li>
+                    <li>• Дискретная математика (логика, теория множеств)</li>
+                    <li>• Компьютерная графика и дизайн — основы Figma</li>
+                </ul>
+            </div>
+
+            <div class="edu-block" style="background:#f7faff;">
+                <div class="edu-head">
+                    <div class="edu-left"><strong>Средняя школа (11 классов)</strong></div>
+                    <div class="edu-right">2014–2025</div>
+                </div>
+                <div style="font-size:14px; color:#2c405a;">Аттестат о среднем общем образовании</div>
+            </div>
+        </section>
+
+        <!-- ===== ПРОЕКТЫ ===== -->
+        <section class="section">
+            <div class="section-title">Проекты</div>
+
+            <div class="project">
+                <div class="proj-title">🌐 Сайт-визитка «Моё портфолио»</div>
+                <div class="proj-stack">HTML5 · CSS3 · Flexbox · адаптив</div>
+                <div class="proj-desc">
+                    Разработала одностраничный сайт с информацией о себе, навыках и контактами.
+                    Сайт адаптирован под мобильные устройства. Полная разработка структуры, стилей и адаптивности.
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="proj-title">🎨 Макет интернет-магазина в Figma</div>
+                <div class="proj-stack">Figma · авто-лейаут · прототипирование</div>
+                <div class="proj-desc">
+                    Создала макет главной страницы интернет-магазина с карточками товаров и корзиной.
+                    Разработала дизайн, подобрала цветовую гамму, создала интерактивный прототип.
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="proj-title">🧮 Консольный калькулятор на C++</div>
+                <div class="proj-stack">C++ · STL · функции · циклы</div>
+                <div class="proj-desc">
+                    Университетская лабораторная работа: программа для выполнения арифметических операций
+                    с обработкой ошибок ввода. Написание логики и отладка кода.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ЯЗЫКИ ===== -->
+        <section class="section">
+            <div class="section-title">Языки</div>
+            <div class="lang-item"><span>Русский</span><span>Родной</span></div>
+            <div class="lang-item"><span>Английский</span><span>A2 (чтение документации с переводчиком)</span></div>
+        </section>
+
+        <!-- ===== ДОПОЛНИТЕЛЬНО ===== -->
+        <section class="section">
+            <div class="section-title">Дополнительно</div>
+            <ul class="extra-list">
+                <li>Внимательность к деталям и усидчивость</li>
+                <li>Творческие навыки: рисование, дизайн</li>
+                <li>Отсутствие вредных привычек</li>
+                <li>Доведение задач до конца</li>
+                <li>Готова предоставить рекомендации от преподавателей</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
